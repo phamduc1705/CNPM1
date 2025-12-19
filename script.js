@@ -39,14 +39,14 @@
         document.querySelector(".taskName2").value = "";
         document.querySelector(".description2").value = "";
         document.querySelector(".tag_text2").value = "";
-        document.querySelector(".date2").value = ""; // Sửa lại đúng class .date2
+        document.querySelector(".date2").value = ""; 
     };
 
     // --- 3. XỬ LÝ SỰ KIỆN TRÊN DANH SÁCH TASK (QUAN TRỌNG) ---
     // Sử dụng Event Delegation: Bắt sự kiện click chung trên list cha
     taskList.addEventListener('click', function(e) {
         
-        // TRƯỜNG HỢP A: Click vào nút TICK (Hoàn thành)
+        //  Click vào nút TICK (Hoàn thành)
         const tickBtn = e.target.closest('.tick');
         if (tickBtn) {
             // Ngăn sự kiện click lan ra box cha (để không mở popup edit)
@@ -55,7 +55,6 @@
             const box = tickBtn.closest(".box");
             const tickIcon = tickBtn.querySelector(".tik");
             const priorityLabel = box.querySelector(".priority");
-
             // Hiệu ứng giao diện
             tickIcon.classList.toggle("show");
             tickBtn.classList.toggle("active");
@@ -65,11 +64,12 @@
             if (box.classList.contains("active")) {
                 // Lưu lại giá trị cũ để khôi phục khi bỏ tick
                 priorityLabel.setAttribute('data-old-text', priorityLabel.textContent);
-                priorityLabel.textContent = "Done";
+                // priorityLabel.textContent = "Done";
                 priorityLabel.style.backgroundColor = "rgb(7, 254, 7)"; // Màu xanh
+                // descriptionel.innerHTML=
             } else {
                 // Khôi phục lại text cũ
-                const oldText = priorityLabel.getAttribute('data-old-text') || "High";
+                const oldText = priorityLabel.getAttribute('data-old-text') || "HIGH";
                 priorityLabel.textContent = oldText;
                 priorityLabel.style.backgroundColor = "rgba(255, 0, 0, 0.448)"; // Màu đỏ nhạt mặc định
             }
@@ -124,7 +124,6 @@
     createBtn.addEventListener("click", (e) => {
         e.preventDefault();
         
-        // Lấy Input (Dùng đúng class .date2 khớp với HTML của bạn)
         const nameInput = document.querySelector(".taskName2");
         const descInput = document.querySelector(".description2");
         const priorityInput = document.getElementById("priorityInput");
@@ -141,7 +140,7 @@
         const taskHTML = `
             <div class="box">
                 <div class="head_box">
-                    <div class="priority">${priorityInput.value}</div>
+                    <div class="priority"><b>${priorityInput.value}</b></div>
                     <div class="selection">
                         <button class="tick"><i class="fa-solid fa-check tik"></i></button>
                     </div>

@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <scripts href="script.js"></scripts>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="root">
@@ -24,10 +22,6 @@
                 <div class="box_nav">
                     <i class="fa-solid fa-border-all"></i>
                     <p>Dashboard</p>
-                </div>
-                <div class="box_nav">
-                    <i class="fa-regular fa-calendar-days"></i>
-                    <p>Calender</p>
                 </div>
             </div>
             <div class="nav_filters">
@@ -72,7 +66,7 @@
                     <div class="main_box" id="taskList">
                         <div class="box">
                             <div class="head_box">
-                                <div class="priority">High</div>
+                                <div class="priority"><b>HIGH</b></div>
                                 <div class="selection">
                                     <button class="tick">
                                         <i class="fa-solid fa-check tik"  ></i>
@@ -92,7 +86,7 @@
                         </div>
                         <div class="box">
                             <div class="head_box">
-                                <div class="priority">High</div>
+                                <div class="priority"><b>HIGH</b></div>
                                 <div class="selection">
                                     <button class="tick">
                                         <i class="fa-solid fa-check tik"  ></i>
@@ -115,7 +109,9 @@
                     <div class="clock">
                         <div class="main_clock">
                             <div class="title_clock">
-                                haha
+                                <div class="select_clock">A</div>
+                                <div class="select_clock">B</div>
+                                <div class="select_clock">C</div>
                             </div>
                             <div class="clock1">
                                 clock
@@ -170,7 +166,7 @@
 </div>
 <div class="root3">
         <div class="header2">Task Details</div>
-        <div class="body2">
+        <div class="body3">
             <form action="">
                 <div class="row">
                     <p><b>Task name</b></p>
