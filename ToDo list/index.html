@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="root">
+        <div class="nav">
+            <div class="nav_main">
+                <i class="fa-regular fa-clipboard"></i>
+                <div class="nav_title"><b>TaskFour</b></div>
+            </div>
+            <div class="nav_tools">
+                <div class="box_nav">
+                    <i class="fa-solid fa-border-all"></i>
+                    <p>Dashboard</p>
+                </div>
+            </div>
+            <div class="nav_filters">
+                <div class="filter1">FILTERS</div>
+                <div class="filter2">
+                    <p>Priority</p> 
+                    <ul>
+                        <li>High Priority</li>
+                        <li>Medium</li>
+                        <li>Low priority</li>
+                    </ul>
+                </div>
+                <div class="filter3">
+                    <p>Tags</p>
+                    <div class="alltag">
+                        <ul>
+                            <li>design</li>
+                            <li>meeting</li>
+                            <li>dev</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="header">
+                <div class="search">
+                    <form action="">
+                        <input type="text" class="search_form" placeholder="Search tasks"> 
+                    </form>
+                </div>
+                <div class="corner">
+                    <div class="icon"><i class="fa-regular fa-bell"></i></div>
+                    <div class="add">
+                        <button id="addTaskBtn" type="button" class="button1">Add Task</button>
+                    </div>
+                </div>              
+            </div>
+            <div class="body">
+                <div class="main_task">
+                    <div class="title_task"><b>My Task</b></div>
+                    <div class="main_box" id="taskList">
+                        <div class="box">
+                            <div class="head_box">
+                                <div class="priority"><b>HIGH</b></div>
+                                <div class="selection">
+                                    <button class="tick">
+                                        <i class="fa-solid fa-check tik"  ></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="box_title"><b>NLXH: Vai trò của áp lực trong học tập</b></div>
+                            <div class="description">Trong tác phẩm “Khói trời lộng lẫy”, nhà văn Nguyễn Ngọc Tư viết: “Con người trừng trị thiên nhiên bằng cách […] hủy hoại nó. Còn thiên nhiên trả thù con người bằng cách nào em biết không? Nó biến mất.”</div>
+                            <div class="tag_parent">
+                                <div class="tag">design</div>
+                                <div class="tag">design</div>
+                            </div>
+                            <div class="time">
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <div class="deadline">today</div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="head_box">
+                                <div class="priority"><b>HIGH</b></div>
+                                <div class="selection">
+                                    <button class="tick">
+                                        <i class="fa-solid fa-check tik"  ></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="box_title"><b>NLXH: Vai trò của áp lực trong học tập</b></div>
+                            <div class="description">Trong tác phẩm “Khói trời lộng lẫy”, nhà văn Nguyễn Ngọc Tư viết: “Con người trừng trị thiên nhiên bằng cách […] hủy hoại nó. Còn thiên nhiên trả thù con người bằng cách nào em biết không? Nó biến mất.”</div>
+                            <div class="tag_parent">
+                                <div class="tag">design</div>
+                                <div class="tag">design</div>
+                            </div>
+                            <div class="time">
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <div class="deadline">today</div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="clock">
+                        <div class="main_clock">
+                            <div class="title_clock">
+                                <div class="select_clock">A</div>
+                                <div class="select_clock">B</div>
+                                <div class="select_clock">C</div>
+                            </div>
+                            <div class="clock1">
+                                clock
+                            </div>
+                            <div class="settime">
+                                settime
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <div class="root2">
+        <div class="header2">
+            Add new task
+        </div>
+        <div class="body2">
+            <form action="">
+                <div class="row">
+                    <p><b>Task name</b></p>
+                    <input class="taskName2" type="text">
+                </div>
+                <div class="row">
+                    <p><b>Description</b></p>
+                    <textarea name="" id="" class="description2" placeholder="Describe your task"></textarea>
+                </div>
+                <div class="selection2">
+                    <div class="priority2">
+                        <b>Priority</b><br>
+                        <select name="" id="priorityInput">
+                            <option>High</option>
+                            <option>Medium</option>
+                            <option>Low</option>
+                        </select>
+                    </div>
+                    <div class="tag2">
+                        <b>Tag</b><br>
+                        <input class="tag_text2" type="text">
+                    </div>
+                    <div class="date2">
+                        <b>Date</b><br>
+                        <input class="date2" type="date">
+                    </div>
+                </div>
+            </form> 
+            <div class="button2">
+                <button class="create2">Create new task</button>
+                <button class="cancel2">Cancel</button>
+            </div>  
+        </div>
+</div>
+<div class="root3">
+        <div class="header2">Task Details</div>
+        <div class="body3">
+            <form action="">
+                <div class="row">
+                    <p><b>Task name</b></p>
+                    <input class="editTaskName" type="text" style="width: 100%;">
+                </div>
+                <div class="row">
+                    <p><b>Description</b></p>
+                    <textarea class="editDescription" style="width: 100%; height: 80px;"></textarea>
+                </div>
+                <div class="selection2" style="display: flex; gap: 10px; margin-top: 10px;">
+                    <div class="priority2">
+                        <b>Priority</b><br>
+                        <select id="editPriority">
+                            <option>High</option>
+                            <option>Medium</option>
+                            <option>Low</option>
+                        </select>
+                    </div>
+                    <div class="tag2">
+                        <b>Tag</b><br>
+                        <input class="editTag" type="text">
+                    </div>
+                    <div class="date2">
+                        <b>Date</b><br>
+                        <input class="editDate" type="date">
+                    </div>
+                </div>
+            </form> 
+            <div class="button2">
+                <button class="btn-save">Save Changes</button>
+                <button class="btn-delete">Delete Task</button>
+                <button class="btn-close-edit">Close</button>
+            </div>  
+        </div>
+    </div>
+<div class="overlay" id="overlay"></div>
+
+</body>
+
+</html>
