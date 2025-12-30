@@ -25,6 +25,8 @@ body{
     border: 1px solid black;
     position: sticky;
     z-index: 9;
+    padding-top: 0;
+    height: auto;
 }
 .nav{
     background-color: var(--nav);
@@ -39,26 +41,61 @@ body{
 .main{
     margin-left: 20%;
     width: 80%;
-    height: 100vh;
+    height: 100%;
     background-color: var(--background);
 }
 
-.search_form{
-    background-color: var(--search);
-    height: auto;
-    width: 600px;
-    padding-top: 10px ;
-    padding-bottom: 10px;
-    padding-left: 40px;
-    border-radius: 40px;
-    margin-left: 30px;
+.search{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    margin-top: 15px;
+
 }
+.search1 {
+    position: relative;
+    width: 500px;
+}
+
+.search_form {
+    background-color: var(--search);
+    width: 100%;
+    padding: 12px 90px 12px 20px; /* chừa chỗ cho button */
+    border-radius: 40px;
+    border: none;
+    outline: none;
+}
+
+.search_button {
+    position: absolute;
+    left: 555px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 8px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.result_search ul{
+    list-style: none;
+    width: 580px;
+    padding: 15px 10px;
+    margin-top: 2px;
+    padding-top: 0px;
+}
+.result_search li{
+    width: 100%;
+    border: 3px solid #ccc;
+    padding: 8px 0;
+}
+
 .corner{
     display: flex;
     margin-left: 300px;
     justify-content: center;
     align-items: center;
-
+    padding-top: 10px;
+    margin-top: 0px;
+    height: 50px;
 }
 .add{
     margin-left: 20px;
@@ -76,12 +113,12 @@ body{
     background-color: black;
     color: white;
     border-radius: 10px;
-
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 .button1:hover{
     transition: scale(1.3);
-    background-color: rgb(5, 253, 34);
-    color: rgb(255, 0, 0);
+    background-color:white;
+    color: black;
     font-weight: bold;
 }
 .body{
@@ -131,6 +168,15 @@ body{
     border-left: solid 6px red;
     position: relative;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    cursor: grab;
+    user-select: none;
+}
+.box.dragging {
+    opacity: 0.4;
+}
+
+.box.drag-over {
+    outline: 3px dashed #22c55e;
 }
 .head_box{
     display: flex;
@@ -164,6 +210,7 @@ body{
     padding: 10px;
     font-weight: 500px;
     width: 90%;
+    height: 30px;
 }
 .description{
     overflow: hidden;
@@ -179,15 +226,14 @@ body{
     text-align: center;
     margin-top: 5px;
     margin-left: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     border-radius: 5px;
 }
 .tag_parent{
     display: flex;
     flex-wrap: wrap;
-    height: auto;
+    height: 45px;
     width: 90%;
-    max-height: 50px;
 
 }
 .deadline{
@@ -201,9 +247,45 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: relative;
     bottom: 5px;
     left: 5px;
+    gap:10px;
+    padding-top: 15px;
+}
+.deletebox{
+    position: absolute;
+    bottom: 5px;
+    right: 15px;
+}
+.deletebtn{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color :#FFFFFF;
+    background-color: rgb(255, 0, 0);
+    cursor: pointer;
+}
+.editbtn{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color :#FFFFFF;
+    background-color: rgb(0, 0, 255);
+    cursor: pointer;
+}
+.editbox{
+    position: absolute;
+    bottom: 5px;
+    right: 50px;
 }
 .nav_main{
     display: flex;
@@ -233,17 +315,37 @@ body{
     font-weight: 900px;
     font-size: 30px;
 }
-.box_nav{
+.box_nav1{
     width: 90%;
     display: flex;
     align-items: center;
-    height: 30px;
+    height: 50px;
     padding-left: 20px;
     font-size: 20px;
     
 }
-.box_nav p{
+.box_nav1 p{
     margin-left: 10px;
+}
+
+.box_nav2{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding-left: 20px;
+    font-size: 20px;
+    
+}
+.box_nav2 p{
+    margin-left: 10px;
+}
+.section_nav{
+    margin-left: 5px;
+    width: 150px;
+    background-color: var(--nav);
+    text-align: left;
+    border: 0px;
 }
 .nav_tools{
     width: 100%;
@@ -256,7 +358,7 @@ body{
     padding-top: 10px;
 }
 
-.filter3 .alltag ul{
+.filter3 .alltag{
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
@@ -304,6 +406,7 @@ body{
 .box.active {
     background-color: #F8FAFC; 
     transition: background-color 0.2s;
+    cursor: grabbing;
     
 }
 .filter1{
@@ -319,7 +422,7 @@ body{
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    z-index: 9000;
+    z-index: 9998;
 }
 .overlay.show {
     display: block;
@@ -430,12 +533,13 @@ body{
     background-color: red;
 }
 .main_clock{
-    border: 2px solid black;
-    border-radius: 5px;
+    border: 1px solid white;
+    border-radius: 15px;
     width: 50%;
-    height: 600px;
+    height: 400px;
     margin: 0 auto;
     margin-top: 50px;
+    background-color: var(--header);
 }
 .title_clock{
     width: 90%;
@@ -509,21 +613,232 @@ background-color: #888;
 .editTag{
     width:100px;
 }
+
 .title_clock{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
     width: 90%;
-    margin: 100 auto;
+    margin: 20 auto;
+    margin-bottom: 5px;
+    height: 35px;
+    background-color: var(--search);
+    border-radius: 8px;
+    border: none;
 }
-.select_clock{
-    width: 30px;
-    height: 30px;
-    border: 1px solid black;
+
+.focus_btn{
+    width: 160px;
+    font-size: 17px;
+    height: 25px;
+    background-color: var(--search);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
     cursor: pointer;
+    border: none;
 }
+/* .short_btn{
+     width: 60px;
+    font-size: 8px;
+    height: 15px;
+    background-color: var(--nav);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+.long_btn{
+     width: 60px;
+    font-size: 8px;
+    height: 15px;
+    background-color: var(--nav);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+} */
+.clock1{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    position:relative;
+}
+.time_clock{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border: 4px solid black;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+.time_clock .time_clock_1{
+    font-size: 40px;
+}
+.time_clock p{
+    font-size: 15px;
+    margin-top: -5px;
+}
+.settime{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 15px;
+    width: 90%;
+    height: 40px;
+    margin-left: 10px;
+}
+.toggleBtn{
+    width: 50%;
+    height: 30px;
+    background-color: black;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.resetBtn{
+    width: 25%;
+    height: 30px;
+    background-color:#E2E8F0;
+    border: none;
+    color: black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.settime1{
+    width :25%;
+    height:30px;
+    background-color:#E2E8F0;
+    border: none;
+    color: black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.root4{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    z-index: 9999;
+    width: 400px; 
+}
+.root4 .header4 {
+    font-size: 20px; 
+    font-weight: bold;
+    text-align: center  ;
+    margin:  15px 0px; 
+
+}
+.root4 .body4{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.root4 .body4 row4{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.saveTimeBtn{
+    padding: 8px 15px; 
+    cursor: pointer; 
+    border: none; 
+    border-radius: 5px; 
+    color: white;
+    background-color: #4CAF50;
+}
+.cancelTimeBtn{
+    padding: 8px 15px; 
+    cursor: pointer; 
+    border: none; 
+    border-radius: 5px; 
+    color: white;
+    background-color: #888; 
+}
+.status-filter.active {
+    background-color: #4f46e5;   /* xanh tím */
+    color: #fff;
+    border-color: #4f46e5;
+}
+
+.status-filter {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 6px;
+    width: 80%;
+    text-align: left;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.status1 {
+    background: rgb(254, 60, 42);
+}
+
+.status2 {
+    background: rgb(108, 237, 108);
+}
+
+.priority-list li {
+    padding: 6px 10px;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 80%;
+    font-size: 20px;
+}
+
+.priority-list li.active {
+    background: #4f46e5;
+    color: #fff;
+}
+
+.priority1{
+    color: rgb(248, 17, 17);
+}
+
+.priority5{
+    color: rgb(239, 239, 19);
+}
+
+.priority3{
+    color: rgb(30, 244, 30);
+}
+
+.tag1{
+   background-color: rgba(255, 0, 0, 0.448);
+    width: 30%;
+    min-width: 55px;
+    height: 20px;
+    text-align: center;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
